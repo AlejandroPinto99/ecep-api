@@ -11,3 +11,5 @@
     "nombre_madre": "SOFIA LOYOLA",
     "persona_refiere": "NA",
 }
+
+SELECT a.nombre_paciente, a.apellido_paciente, b.nombre_municipio FROM paciente a inner join municipio b on a.id_municipio = b.id_municipio
