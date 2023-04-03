@@ -4,12 +4,12 @@ import { pool } from '../db.js';
 
 // Obtener todos los pacientes de la tabla de paciente.
 export const getPatients = async (req, res) =>  {
-    // try {
+    try {
         const [rows] = await pool.query('SELECT a.fecha_registro, a.nombre_paciente, a.apellido_paciente, a.sexo, a.fecha_nacimiento, c.nombre_hospital, a.telefono_contacto, b.nombre_municipio, a.nombre_padre, a.nombre_madre, a.persona_refiere FROM paciente a inner join municipio b on a.id_municipio = b.id_municipio inner join hospital c on c.id_hospital = a.id_hospital_nacimiento');
         res.json(rows);
-    // } catch (error) {
-    //     return res.status(500).json('Ha ocurrido un error');
-    // }
+    } catch (error) {
+        return res.status(500).json('Ha ocurrido un error');
+    }
 }
 
 //Crear un nuevo paciente
